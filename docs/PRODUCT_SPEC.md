@@ -27,6 +27,14 @@ The five chapter labels can be renamed; the split between starred and ordinary e
 - Provide explicit backup/export and restoration tests before anyone relies on the app as a password-protected archive.
 - Permissions: no arbitrary intents, no silent install, no automatic package extraction, no remote code execution, no unreviewed module installation.
 
+## Global Cowlsly.Online account requirement (owner decision 6 November 2026)
+- Every Cowlsly Labs app/game, including the Tome, must require a Cowlsly.Online account to use production features. Free download does not remove the account requirement.
+- The present prototype only has a local 6-digit PIN/biometric lock. **That is not shared-account authentication** and must not be shipped as a compliant production SSO integration.
+- After the central backend exists, sign-in via secure OIDC authorization-code + PKCE in an external browser/Custom Tab. Validate audience/scopes, refresh/revocation and stable user ID server-side. Never copy Cowlsly passwords or security passphrases into the book.
+- Keep registration and account recovery reachable before successful sign-in, with secure handling of offline state and a local privacy lock as an extra layer.
+- Portal entries, custom icons and plugin grants remain app-private and should not be uploaded merely to validate login. Encrypted offline storage and account recovery must be independently threat-modelled.
+- Existing alpha can be used only as a clearly marked local development build until server identity integration is implemented and verified.
+
 ## Security milestones
 - v0.1 alpha: PIN hashing with random salt; opt-in strong biometric; app-private catalogue; HTTPS-only embedded navigation and no file access.
 - Blocking release issues: encrypt catalogue at rest, strengthen anti-bruteforce using platform-backed enforcement, lifecycle auto-lock, backup/recovery tests, biometric enrolment change and threat model, input validation tests.
