@@ -288,10 +288,13 @@ private fun TomeScreen(
                     else entries + e.copy(position = (entries.maxOfOrNull { it.position } ?: -1) + 1)
                 save(next); creating = false; editing = null
             },
-            onDelete = if (target != null) {{
-                save(entries.filter { it.id != target.id })
-                editing = null; creating = false
-            }} else null
+            onDelete = if (target != null) {
+                {
+                    save(entries.filter { it.id != target.id })
+                    editing = null
+                    creating = false
+                }
+            } else null
         )
     }
 }
