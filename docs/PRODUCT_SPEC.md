@@ -27,6 +27,9 @@ The five chapter labels can be renamed; the split between starred and ordinary e
 - Provide explicit backup/export and restoration tests before anyone relies on the app as a password-protected archive.
 - Permissions: no arbitrary intents, no silent install, no automatic package extraction, no remote code execution, no unreviewed module installation.
 
+## Central registration, recovery, and resilient email links
+Every installed Tome app should offer **Create Cowlsly.Online account** and **Forgot password**, routed to the website's canonical signup and recovery screens, not hidden inside the local PIN book. Use verified Android App Links, Android Custom Tabs and approved OAuth PKCE/state for optional return to Tome; if original activity is killed the email link finishes on the website. Registration and forgotten-password confirmation must use secure single-use **email links**, not numeric codes that demand switching windows. The local six-digit PIN remains an additional book privacy lock only. This is a design requirement and is NOT IMPLEMENTED in the prototype.
+
 ## Global Cowlsly.Online account requirement (owner decision 6 November 2026)
 - Every Cowlsly Labs app/game, including the Tome, must require a Cowlsly.Online account to use production features. Free download does not remove the account requirement.
 - The present prototype only has a local 6-digit PIN/biometric lock. **That is not shared-account authentication** and must not be shipped as a compliant production SSO integration.
